@@ -1,4 +1,3 @@
-
 module ImageButtonTo
   def image_button_to(source, options = {}, html_options = {})
     html_options = html_options.stringify_keys
@@ -36,7 +35,6 @@ module ImageButtonTo
     function = block_given? ? update_page(&block) : args[0] || ''
     onclick = "#{"#{html_options[:onclick]}; " if html_options[:onclick]}#{function};"
     
-    #tag(:input, html_options.merge(:type => 'image', :source => source, :onclick => onclick))
     image_submit_tag(source, html_options.merge(:onclick => onclick))
   end
 end
