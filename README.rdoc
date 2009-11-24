@@ -101,6 +101,11 @@ http://isitsciencefiction.com (where this code was born):
 Check the documentation for image_button_tag and button_to, this is just a 
 merge.
 
+== Documentation
+
+Up to date documentation should be automatically generated on
+http://rdoc.info/projects/pupeno/image_button_to
+
 == Copyright
 
 Copyright (c) 2009 José Pablo Fernández Silva. See LICENSE for details.
