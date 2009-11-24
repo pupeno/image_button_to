@@ -1,16 +1,105 @@
-= image_button_to
+= Image Button To
 
-Description goes here.
+Ruby on Rails provides the following helpers:
 
-== Note on Patches/Pull Requests
- 
-* Fork the project.
-* Make your feature addition or bug fix.
-* Add tests for it. This is important so I don't break it in a
-  future version unintentionally.
-* Commit, do not mess with rakefile, version, or history.
-  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
-* Send me a pull request. Bonus points for topic branches.
+* +button_to+
+
+* +button_to_function+
+
+* +button_to_remote+
+
+which wrap a form around a +submit_tag+ to easily create buttons pointing to 
+some action.
+
+What Ruby on Rails doesn't provide is a counterpart for +image_submit_tag+. This
+gem provides that. It basically contains three helpers:
+
+* +image_button_to+
+
+* +image_button_to_remote+
+
+* +image_button_to_function+
+
+== Installation
+
+This gem is provided through Gemcutter so you need to have gem configured to
+pull gems from Gemcutter.
+
+=== Enabling Gemcutter
+
+A properly configured environment would be like this:
+
+  $ gem sources
+  *** CURRENT SOURCES ***
+  
+  http://gemcutter.org
+  http://gems.rubyforge.org/
+  http://gems.github.com
+
+If you don't have http://gemcutter.org in your sources then you need to add. I
+know two ways to do. One is installing Gemcutter and running gem tumble:
+
+  $ sudo gem install gemcutter
+  $ gem tumble
+
+Be careful that gem tumble will remove Gemcutter from your repositories if it's
+already there.
+
+The other way is by hand like this:
+
+  $ gem source -a http://gemcutter.org
+
+I'm not sure if there's any difference. I think there isn't one.
+
+=== Installing image_button_to by hand
+
+It's simple a matter of running:
+
+  $ gem install image_button_to
+
+and that's it. Let me know if something breaks.
+
+=== Installing through your Ruby on Rails project
+
+In the +environment.rb+ file of your Ruby on Rails project you'll have some
+commented out lines like this:
+
+  # config.gem "bj"
+  # config.gem "hpricot", :version => '0.6', :source => "http://code.whytheluckystiff.net"
+  # config.gem "sqlite3-ruby", :lib => "sqlite3"
+  # config.gem "aws-s3", :lib => "aws/s3"
+
+After those you can just add
+
+  config.gem "image_button_to"
+
+and then run
+
+  $ rake gems:install
+
+and you'll get this and all the gems your Rails project need installed.
+Configuring your Rails project like that is something you'll need anyway, so
+this is my recommended way.
+
+== Using the helpers
+
+Be sure to have you Rails project properly configured to load this gem like it's
+explained in the previous section, in "Installing through your Ruby on Rails
+project". After that, using each of the methods is equivalent to using the
+non-image provided by Ruby on Rails, but passing the path to the image instead
+of the text.
+
+The path to the image is treated in the same way image_submit_tags treat it
+(appending "images/" and whatnot). Some examples from
+http://isitsciencefiction.com (where this code was born):
+
+  <%= image_button_to "yes-up.png", vote_up_item_url(:id => @item.id) %>
+  <%= image_button_to "no-up.png", vote_down_item_url(:id => @item.id) %>
+  <%= image_button_to_remote "yes-up-small.png", :update => item.slug, :url => vote_up_item_url(:id => item.id) %>
+  <%= image_button_to_remote "no-up-small.png", :update => item.slug, :url => vote_down_item_url(:id => item.id) %>
+
+Check the documentation for image_button_tag and button_to, this is just a 
+merge.
 
 == Copyright
 

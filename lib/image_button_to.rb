@@ -65,14 +65,48 @@ module ImageButtonTo
     
     url = options.is_a?(String) ? options : self.url_for(options)
     
-    "<form method=\"#{form_method}\" action=\"#{escape_once url}\" class=\"button-to\"><div>" +
+    "<form method=\"#{form_method}\" action=\"#{escape_once url}\" class=\"image-button-to\"><div>" +
     method_tag + image_submit_tag(source, html_options) + request_token_tag + "</div></form>"
   end
   
+  # Creates an image button with an onclick event which calls a remote action
+  # via XMLHttpRequest
+  #
+  # The options for specifying the target with :url and defining
+  # callbacks is the same as link_to_remote except that +source+ is the path
+  # for an image.
   def image_button_to_remote(source, options = {}, html_options = {})
     image_button_to_function(source, remote_function(options), html_options)
   end
   
+  # Returns an image button with the given +name+ text that'll trigger a
+  # JavaScript +function+ using the onclick handler.
+  #
+  # The first argument +source+ is the filename of the button as treated by
+  # +image_submit_tag+, that is, passed to AssetTagHelper#image_path.
+  #
+  # The next arguments are optional and may include the javascript function
+  # definition and a hash of html_options.
+  #
+  # The +function+ argument can be omitted in favor of an +update_page+ block,
+  # which evaluates to a string when the template is rendered (instead of
+  # making an Ajax request first).
+  #
+  # The +html_options+ will accept a hash of html attributes for the link tag.
+  # Some examples are :class => "nav_button", :id => "articles_nav_button"
+  #
+  # Note: if you choose to specify the javascript function in a block, but
+  # would like to pass html_options, set the +function+ parameter to nil
+  #
+  # Examples:
+  #   button_to_function "greeting.png", "alert('Hello world!')"
+  #   button_to_function "delete.png", "if (confirm('Really?')) do_delete()"
+  #   button_to_function "details.png" do |page|
+  #     page[:details].visual_effect :toggle_slide
+  #   end
+  #   button_to_function "details.png", :class => "details_button" do |page|
+  #     page[:details].visual_effect :toggle_slide
+  #   end
   def image_button_to_function(source, *args, &block)
     html_options = args.extract_options!.symbolize_keys
     
