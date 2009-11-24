@@ -14,4 +14,4 @@ Description goes here.
 
 == Copyright
 
-Copyright (c) 2009 J. Pablo Fernández. See LICENSE for details.
+Copyright (c) 2009 José Pablo Fernández Silva. See LICENSE for details.

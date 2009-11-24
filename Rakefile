@@ -1,3 +1,5 @@
+# Copyright (c) 2009 José Pablo Fernández Silva. See LICENSE for details.
+
 require 'rubygems'
 require 'rake'
 
