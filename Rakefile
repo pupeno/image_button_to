@@ -50,8 +50,9 @@ Rake::RDocTask.new do |rdoc|
   version = File.exist?('VERSION') ? File.read('VERSION') : ""
 
   rdoc.rdoc_dir = 'rdoc'
-  rdoc.title = "image_button_to #{version}"
+  rdoc.title = "Image Button To #{version}"
   rdoc.rdoc_files.include('README*')
+  rdoc.rdoc_files.include('LICENSE')
   rdoc.rdoc_files.include('lib/**/*.rb')
   rdoc.options << '--charset' << 'utf-8' 
 end
