@@ -20,6 +20,14 @@ gem provides that. It basically contains three helpers:
 
 * +image_button_to_function+
 
+== Where?
+
+The canonical places for this gem are:
+
+* http://github.com/pupeno/image_button_to
+* http://rubygems.org/gems/image_button_to
+* http://rdoc.info/projects/pupeno/image_button_to
+
 == Installation
 
 This gem is provided through Gemcutter so you need to have gem configured to
@@ -51,7 +59,7 @@ The other way is by hand like this:
 
 I'm not sure if there's any difference. I think there isn't one.
 
-=== Installing image_button_to by hand
+=== Installing image_button_to manually
 
 It's simple a matter of running:
 
@@ -106,6 +114,16 @@ merge.
 Up to date documentation should be automatically generated on
 http://rdoc.info/projects/pupeno/image_button_to
 
+== Note on Patches/Pull Requests
+ 
+* Fork the project.
+* Make your feature addition or bug fix.
+* Add tests for it. This is important so I don't break it in a
+  future version unintentionally.
+* Commit, do not mess with rakefile, version, or history.
+  (if you want to have your own version, that is fine but bump version in a commit by itself I can ignore when I pull)
+* Send me a pull request. Bonus points for topic branches.
+
 == Copyright
 
-Copyright (c) 2009 José Pablo Fernández Silva. See LICENSE for details.
+Copyright (c) 2009 J. Pablo Fernández. See LICENSE for details.
